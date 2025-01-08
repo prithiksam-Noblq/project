@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes-page/notes/notes.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

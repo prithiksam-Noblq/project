@@ -1,6 +1,5 @@
 <div class="container">
     <h1>Notes App</h1>
-  
     <!-- Note Input Form -->
     <form (ngSubmit)="addNote()">
       <input
@@ -10,7 +9,9 @@
         placeholder="Enter your note"
         required
       />
-      <button type="submit" [disabled]="!newNote.trim()">Add Note</button>
+      <button type="submit" [disabled]="!newNote.trim()">
+        <i class="pi pi-plus" style="font-size: 1rem"></i> 
+      </button>
     </form>
   
     <hr />
@@ -19,8 +20,12 @@
     <ul>
       <li *ngFor="let note of notes; let i = index">
         <span>{{ note }}</span>
-        <button (click)="editNote(i)">Edit</button>
-        <button (click)="deleteNote(i)">Delete</button>
+        <button (click)="editNote(i)" style="margin-right: 8px">
+          <i class="pi pi-pencil" style="font-size: 1rem"></i> 
+        </button>
+        <button (click)="deleteNote(i)">
+          <i class="pi pi-trash" style="font-size: 1rem"></i> 
+        </button>
       </li>
     </ul>
   </div>

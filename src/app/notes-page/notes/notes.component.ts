@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input,Output } from '@angular/core';
 
 @Component({
   selector: 'app-notes',
   standalone: false,
-  
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.css'
+
 })
 export class NotesComponent {
+
+  @Input() projectTitle?: string
+  @Output() OnEdit = new EventEmitter<string>()
+
   notes: string[] = [];
   newNote: string = '';
-
   constructor() {
     // Load notes from local storage
     const savedNotes = localStorage.getItem('notes');

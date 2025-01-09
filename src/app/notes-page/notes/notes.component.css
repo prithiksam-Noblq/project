@@ -164,3 +164,19 @@ button:focus {
   max-height: 400px; 
   overflow-y: auto; 
 }
+.expanded-note {
+  transition: all 0.3s ease-in-out;
+  height: 150px; /* Adjust as needed for the expanded size */
+  background-color: #f9f9f9; /* Optional styling for expanded notes */
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.normal-note {
+  transition: all 0.3s ease-in-out;
+  height: 50px; /* Adjust as needed for the normal size */
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 5px;
+}
+

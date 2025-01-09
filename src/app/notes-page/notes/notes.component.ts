@@ -54,7 +54,9 @@ export class NotesComponent
   }
 
   ngDoCheck() {
-    console.log('ngDoCheck: Change detection run');
+    if(this.editNote){
+    console.log('ngDoCheck: Change detection run:',this.editNote);
+    }
   }
 
   ngAfterContentInit() {
@@ -89,13 +91,16 @@ export class NotesComponent
     }
   }
 
+  expandedNoteIndex: number | null = null; 
+
   editNote(index: number) {
     const updatedNote = prompt('Edit your note:', this.notes[index]);
     if (updatedNote !== null && updatedNote.trim() !== '') {
       this.notes[index] = updatedNote.trim();
       this.saveNotes();
     }
-    this.ngOnChanges(); // Call ngOnChanges after updating the note
+    this.ngOnChanges();// Call ngOnChanges after updating the note 
+    this.ngDoCheck();// Call ngDoCheck for checking the chage are happen in the code
   }
 
   deleteNote(index: number) {

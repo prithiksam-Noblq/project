@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #444;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('../public/tropical-10201.gif'); 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

@@ -1,32 +1,40 @@
 <div class="container">
-    <h1>Notes App</h1>
-    <!-- Note Input Form -->
-    <form (ngSubmit)="addNote()">
-      <input
-        type="text"
-        [(ngModel)]="newNote"
-        name="newNote"
-        placeholder="Enter your note"
-        required
-      />
-      <button type="submit" [disabled]="!newNote.trim()">
-        <i class="pi pi-plus" style="font-size: 1rem"></i> 
-      </button>
-    </form>
+  <h1>Notes App</h1>
+  <!-- Note Input Form -->
+  <form (ngSubmit)="addNote()" class="note-form">
+    <input
+      type="text"
+      [(ngModel)]="newNote"
+      name="newNote"
+      placeholder="Enter your note"
+      required
+    />
   
-    <hr />
-  
-    <!-- Notes List -->
-    <ul>
-      <li *ngFor="let note of notes; let i = index">
-        <span>{{ note }}</span>
-        <button (click)="editNote(i)" style="margin-right: 8px">
-          <i class="pi pi-pencil" style="font-size: 1rem"></i> 
-        </button>
-        <button (click)="deleteNote(i)">
-          <i class="pi pi-trash" style="font-size: 1rem"></i> 
-        </button>
-      </li>
-    </ul>
+    <div 
+    class="icon-container" 
+    [class.disabled]="!newNote.trim()"
+    (click)="!newNote.trim() ? null : handleClick()">
+    <i class="pi pi-plus"></i>
   </div>
-  
+   
+  </form>
+
+  <hr />
+
+  <!-- Notes List -->
+  <div class="notes-container">
+    <div *ngFor="let note of notes; let i = index" class="note-box">
+      <div class="note-content">
+        <p>{{ note }}</p>
+        <div class="note-actions">
+          <button (click)="editNote(i)">
+            <i class="pi pi-pencil" style="font-size: 1rem"></i>
+          </button>
+          <button (click)="deleteNote(i)">
+            <i class="pi pi-trash" style="font-size: 1rem"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,22 +1,166 @@
+
+.note-form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none;
+}
+
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Individual note box */
+.note-box {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.note-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Lifts the note when hovered */
+}
+
+/* Styling inside the note box */
+.note-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-content p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500; /* Slightly bold text for better readability */
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* Button styling */
+.note-actions button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #555;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.note-actions button:hover {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1); /* Blue highlight on hover */
+}
+
+/* Add icon container (add button) */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #007bff, #00b0ff); /* Premium gradient background */
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.icon-container:hover {
+  background: linear-gradient(45deg, #0056b3, #0094cc); /* Darker gradient on hover */
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.icon-container i {
+  font-size: 1.5rem; /* Larger icon for better visibility */
+}
+
+/* Disabled state for elements */
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* General button styles */
+button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}
+.video-background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: -1;
+}
+
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  button {
-    margin-left: 10px;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff; /* White text for contrast on video */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1;
+  position: relative;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  max-height: 400px; 
+  overflow-y: auto; 
+}

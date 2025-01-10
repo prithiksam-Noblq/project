@@ -5,19 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes-page/notes/notes.component';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotesComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule, 
-    ReactiveFormsModule
-  ],
+  declarations: [AppComponent, NotesComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

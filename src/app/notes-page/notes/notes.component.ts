@@ -45,7 +45,10 @@ export class NotesComponent
   }
 
   ngOnInit() {
-    console.log('ngOnInit: Component initialized with inputs:', this.projectTitle);
+    console.log(
+      'ngOnInit: Component initialized with inputs:',
+      this.projectTitle
+    );
   }
 
   ngOnChanges() {
@@ -89,27 +92,26 @@ export class NotesComponent
     }
   }
 
-
   editNote(index: number) {
-  this.editModeIndex = index; // Set the current note to edit mode
-  this.editedNote = this.notes[index]; // Set the current content in editable field
-}
-
-saveEditedNote() {
-  if (this.editedNote.trim() !== '') {
-    if (this.editModeIndex !== null) {
-      this.notes[this.editModeIndex] = this.editedNote.trim(); // Save updated content
-      this.saveNotes(); // Save notes to persistence layer
-    }
-    this.editModeIndex = null; // Exit edit mode
-    this.ngOnChanges(); // Trigger Angular lifecycle hooks if needed
-    this.ngDoCheck(); // Check for changes
+    this.editModeIndex = index; // Set the current note to edit mode
+    this.editedNote = this.notes[index]; // Set the current content in editable field
   }
-}
 
-cancelEdit() {
-  this.editModeIndex = null; // Exit edit mode without saving
-}
+  saveEditedNote() {
+    if (this.editedNote.trim() !== '') {
+      if (this.editModeIndex !== null) {
+        this.notes[this.editModeIndex] = this.editedNote.trim(); // Save updated content
+        this.saveNotes(); // Save notes to persistence layer
+      }
+      this.editModeIndex = null; // Exit edit mode
+      this.ngOnChanges(); // Trigger Angular lifecycle hooks if needed
+      this.ngDoCheck(); // Check for changes
+    }
+  }
+
+  cancelEdit() {
+    this.editModeIndex = null; // Exit edit mode without saving
+  }
 
   deleteNote(index: number) {
     if (confirm('Are you sure you want to delete this note?')) {

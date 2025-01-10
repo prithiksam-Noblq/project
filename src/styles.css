@@ -1,12 +1,11 @@
-
 .container {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
   color: #444;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url('../public/tropical-10201.gif'); 
-  background-size: cover; 
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url("../public/tropical-10201.gif");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 10px;

@@ -35,8 +35,10 @@ export class NotesComponent
 
   notes: string[] = [];
   newNote: string = '';
+  editModeIndex: number | null = null; // To track which note is being edited
+  editedNote: string = '';
 
- constructor() {
+  constructor() {
     console.log('NotesComponent constructor called');
     const savedNotes = localStorage.getItem('notes');
     this.notes = savedNotes ? JSON.parse(savedNotes) : [];
@@ -46,7 +48,6 @@ export class NotesComponent
     console.log('ngOnInit: Component initialized with inputs:', this.projectTitle);
   }
 
-
   ngOnChanges() {
     if (this.projectTitle) {
       console.log('ngOnChanges: Inputs have changed:', this.projectTitle);
@@ -54,9 +55,7 @@ export class NotesComponent
   }
 
   ngDoCheck() {
-    if(this.editNote){
-    console.log('ngDoCheck: Change detection run:',this.editNote);
-    }
+    console.log('ngDoCheck: Change detection run');
   }
 
   ngAfterContentInit() {
@@ -64,7 +63,6 @@ export class NotesComponent
   }
 
   ngAfterContentChecked() {
-    // Runs every time this component content has been checked for changes.
     console.log('ngAfterContentChecked: Content checked for changes');
   }
 
@@ -91,17 +89,27 @@ export class NotesComponent
     }
   }
 
-  expandedNoteIndex: number | null = null; 
 
   editNote(index: number) {
-    const updatedNote = prompt('Edit your note:', this.notes[index]);
-    if (updatedNote !== null && updatedNote.trim() !== '') {
-      this.notes[index] = updatedNote.trim();
-      this.saveNotes();
+  this.editModeIndex = index; // Set the current note to edit mode
+  this.editedNote = this.notes[index]; // Set the current content in editable field
+}
+
+saveEditedNote() {
+  if (this.editedNote.trim() !== '') {
+    if (this.editModeIndex !== null) {
+      this.notes[this.editModeIndex] = this.editedNote.trim(); // Save updated content
+      this.saveNotes(); // Save notes to persistence layer
     }
-    this.ngOnChanges();// Call ngOnChanges after updating the note 
-    this.ngDoCheck();// Call ngDoCheck for checking the chage are happen in the code
+    this.editModeIndex = null; // Exit edit mode
+    this.ngOnChanges(); // Trigger Angular lifecycle hooks if needed
+    this.ngDoCheck(); // Check for changes
   }
+}
+
+cancelEdit() {
+  this.editModeIndex = null; // Exit edit mode without saving
+}
 
   deleteNote(index: number) {
     if (confirm('Are you sure you want to delete this note?')) {

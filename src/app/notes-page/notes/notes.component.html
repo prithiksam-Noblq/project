@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Notes App</h1>
+
   <!-- Note Input Form -->
   <form (ngSubmit)="addNote()" class="note-form">
     <input
@@ -9,14 +10,13 @@
       placeholder="Enter your note"
       required
     />
-  
-    <div 
-    class="icon-container" 
-    [class.disabled]="!newNote.trim()"
-    (click)="!newNote.trim() ? null : handleClick()">
-    <i class="pi pi-plus"></i>
-  </div>
-   
+    <div
+      class="icon-container"
+      [class.disabled]="!newNote.trim()"
+      (click)="!newNote.trim() ? null : handleClick()"
+    >
+      <i class="pi pi-plus"></i>
+    </div>
   </form>
 
   <hr />
@@ -24,7 +24,7 @@
   <!-- Notes List -->
   <div class="notes-container">
     <div *ngFor="let note of notes; let i = index" class="note-box">
-      <div class="note-content">
+      <div *ngIf="editModeIndex !== i" class="note-content">
         <p>{{ note }}</p>
         <div class="note-actions">
           <button (click)="editNote(i)">
@@ -32,6 +32,18 @@
           </button>
           <button (click)="deleteNote(i)">
             <i class="pi pi-trash" style="font-size: 1rem"></i>
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="editModeIndex === i" class="note-editing">
+        <textarea [(ngModel)]="editedNote" class="edit-input"></textarea>
+        <div class="edit-actions">
+          <button (click)="saveEditedNote()" class="save-btn">
+            <i class="pi pi-check" style="font-size: 1rem"></i>
+          </button>
+          <button (click)="cancelEdit()" class="cancel-btn">
+            <i class="pi pi-times" style="font-size: 1rem"></i>
           </button>
         </div>
       </div>

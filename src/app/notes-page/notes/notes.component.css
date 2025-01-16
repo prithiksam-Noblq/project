@@ -16,7 +16,7 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border-color: #007bff; 
+  border-color: #007bff;
   outline: none;
 }
 
@@ -51,7 +51,7 @@ input[type="text"]:focus {
   margin: 0;
   font-size: 1.1rem;
   color: #333;
-  font-weight: 500; 
+  font-weight: 500;
   text-align: left;
   line-height: 1.5;
 }

@@ -8,7 +8,6 @@ import { filter, map, mergeMap } from 'rxjs/operators';
   templateUrl: './app.component.html',
   standalone: false,
   styleUrl: './app.component.css',
-  
 })
 export class AppComponent implements OnInit {
   constructor(

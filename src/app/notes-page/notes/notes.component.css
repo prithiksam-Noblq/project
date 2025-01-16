@@ -16,7 +16,7 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border-color: #007bff; /* Blue border on focus */
+  border-color: #007bff; 
   outline: none;
 }
 
@@ -27,7 +27,6 @@ input[type="text"]:focus {
   margin-top: 20px;
 }
 
-/* Individual note box */
 .note-box {
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -39,10 +38,9 @@ input[type="text"]:focus {
 
 .note-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Lifts the note when hovered */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Styling inside the note box */
 .note-content {
   display: flex;
   justify-content: space-between;
@@ -53,12 +51,11 @@ input[type="text"]:focus {
   margin: 0;
   font-size: 1.1rem;
   color: #333;
-  font-weight: 500; /* Slightly bold text for better readability */
+  font-weight: 500; 
   text-align: left;
   line-height: 1.5;
 }
 
-/* Button styling */
 .note-actions button {
   background-color: transparent;
   border: none;
@@ -73,21 +70,16 @@ input[type="text"]:focus {
 
 .note-actions button:hover {
   color: #007bff;
-  background-color: rgba(0, 123, 255, 0.1); /* Blue highlight on hover */
+  background-color: rgba(0, 123, 255, 0.1);
 }
 
-/* Add icon container (add button) */
 .icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50px;
   height: 50px;
-  background: linear-gradient(
-    45deg,
-    #007bff,
-    #00b0ff
-  ); /* Premium gradient background */
+  background: linear-gradient(45deg, #007bff, #00b0ff);
   color: white;
   border-radius: 50%;
   cursor: pointer;
@@ -95,26 +87,20 @@ input[type="text"]:focus {
 }
 
 .icon-container:hover {
-  background: linear-gradient(
-    45deg,
-    #0056b3,
-    #0094cc
-  ); /* Darker gradient on hover */
-  transform: scale(1.05); /* Slight scaling on hover */
+  background: linear-gradient(45deg, #0056b3, #0094cc);
+  transform: scale(1.05);
 }
 
 .icon-container i {
-  font-size: 1.5rem; /* Larger icon for better visibility */
+  font-size: 1.5rem;
 }
 
-/* Disabled state for elements */
 .disabled {
   pointer-events: none;
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* General button styles */
 button {
   margin-left: 10px;
   padding: 10px 15px;
@@ -136,7 +122,7 @@ button:focus {
 .video-background-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -154,7 +140,7 @@ button:focus {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  color: #ffffff; /* White text for contrast on video */
+  color: #ffffff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   z-index: 1;
   position: relative;
@@ -172,15 +158,15 @@ button:focus {
 }
 .expanded-note {
   transition: all 0.3s ease-in-out;
-  height: 150px; /* Adjust as needed for the expanded size */
-  background-color: #f9f9f9; /* Optional styling for expanded notes */
+  height: 150px;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   padding: 10px;
 }
 
 .normal-note {
   transition: all 0.3s ease-in-out;
-  height: 50px; /* Adjust as needed for the normal size */
+  height: 50px;
   background-color: white;
   border: 1px solid #eee;
   padding: 5px;

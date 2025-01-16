@@ -12,6 +12,7 @@ import {
   AfterViewChecked,
   OnDestroy,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -37,9 +38,10 @@ export class NotesComponent
   newNote: string = '';
   editModeIndex: number | null = null; // To track which note is being edited
   editedNote: string = '';
-
-  constructor() {
-    console.log('NotesComponent constructor called');
+  constructor(private router: Router) {
+    if (!localStorage.getItem('isLoggedIn')) {
+      this.router.navigate(['/login']);
+    }
     const savedNotes = localStorage.getItem('notes');
     this.notes = savedNotes ? JSON.parse(savedNotes) : [];
   }

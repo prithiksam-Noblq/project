@@ -99,22 +99,58 @@
               "src/styles.css"
             ],
             "scripts": []
+          },
+          "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+          "version": 1,
+          "newProjectRoot": "projects",
+          "projects": {
+            "project": {
+              "projectType": "application",
+              "schematics": {
+                "@schematics/angular:component": {
+                  "standalone": true
+                },
+                "@schematics/angular:directive": {
+                  "standalone": true
+                },
+                "@schematics/angular:pipe": {
+                  "standalone": true
+                }
+              },
+              "root": "",
+              "sourceRoot": "src",
+              "prefix": "app",
+              "architect": {
+                "build": {
+                  "builder": "@angular-devkit/build-angular:application",
+                  "options": {
+                    "outputPath": "dist/project",
+                    "index": "src/index.html",
+                    "main": "src/main.ts",
+                    "polyfills": [
+                      "zone.js"
+                    ]
+                  }
+                }
+              }
+            },
+            "cli": {
+              "analytics": "f2152c59-c719-4c6d-93c4-6618f984da84"
+            }
           }
         },
         "deploy": {
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/project",
-            "netlifyToken": "nfp_UuchToU9pS568zafxJFxF1TLDiL739KB4f16",
-            "siteId": "b53a6ccd-9cf4-4eaa-b039-ed7a825ca1c9"
+            "netlifyToken": "nfp_TmZMCuFi9NfqxuMLPajLet6oRFfvxKSUe103",
+            "siteId": "f5571e75-3d5f-48d1-a1d0-7bd4401e52f0"
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "f2152c59-c719-4c6d-93c4-6618f984da84"
+    "analytics": "ed593098-41c7-41ad-aa36-3fddabd9724a"
   }
-  
-
-  }
+}

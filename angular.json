@@ -26,7 +26,9 @@
             "outputPath": "dist/project",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -82,7 +84,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
@@ -90,11 +95,33 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/project",
+            "netlifyToken": "nfp_UuchToU9pS568zafxJFxF1TLDiL739KB4f16",
+            "siteId": "b53a6ccd-9cf4-4eaa-b039-ed7a825ca1c9"
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f2152c59-c719-4c6d-93c4-6618f984da84"
+  },
+  "deploy":{
+    "builder": "@netlify-builder/deploy:deploy",
+    "options": {
+      "outputPath": "dist/project",
+      "netlifyToken": "nfp_UuchToU9pS568zafxJFxF1TLDiL739KB4f16",
+      "siteId": "b53a6ccd-9cf4-4eaa-b039-ed7a825ca1c9"
+      }
+
   }
 }

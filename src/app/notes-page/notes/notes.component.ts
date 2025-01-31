@@ -35,6 +35,7 @@ export class NotesComponent
   @Output() OnEdit = new EventEmitter<string>();
 
   notes: string[] = [];
+  username:string=''; 
   newNote: string = '';
   editModeIndex: number | null = null; // To track which note is being edited
   editedNote: string = '';
@@ -48,9 +49,17 @@ export class NotesComponent
 
   ngOnInit() {
     console.log(
-      'ngOnInit: Component initialized with inputs:',
-      this.projectTitle
-    );
+      'ngOnInit: Component initialized with inputs:');
+      this.projectTitle,
+      this.username = sessionStorage.getItem('username') || '';
+      if(this.username){
+        const userNotes =localStorage.getItem(this.username);
+        if(userNotes){
+          this.notes = JSON.parse(userNotes).notes;
+        }
+
+      }
+    
   }
 
   ngOnChanges() {

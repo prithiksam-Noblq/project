@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes-page/notes/notes.component';
-import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [

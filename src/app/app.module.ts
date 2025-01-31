@@ -9,11 +9,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, data: { Title: 'Login' } },
+  // { path: 'login', component: LoginComponent, data: { Title: 'Login' } },
   { path: 'notes', component: NotesComponent, data: { Title: 'notes' } },
 ];
 @NgModule({
-  declarations: [AppComponent, NotesComponent, LoginComponent],
+  declarations: [AppComponent, NotesComponent, ],
   imports: [
     BrowserModule,
     AppRoutingModule,

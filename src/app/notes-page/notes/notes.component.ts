@@ -41,7 +41,7 @@ export class NotesComponent
   editedNote: string = '';
   constructor(private router: Router) {
     if (!localStorage.getItem('isLoggedIn')) {
-      this.router.navigate(['/login']);
+      // this.router.navigate(['/login']);
     }
     const savedNotes = localStorage.getItem('notes');
     this.notes = savedNotes ? JSON.parse(savedNotes) : [];

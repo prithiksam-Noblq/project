@@ -10,6 +10,9 @@ import { filter, map, mergeMap } from 'rxjs/operators';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
